@@ -1,26 +1,89 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Global Styles or About.module.css */
+.about-section {
+  padding: 100px 20px;
+  background-color: #f9f9f9;
+  color: #333;
+  text-align: center;
+  position: relative;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Timeline Styling */
+.timeline {
+  margin-bottom: 40px;
+}
+
+.timeline h2 {
+  font-size: 2rem;
+  color: #2d2d2d;
+  margin-bottom: 20px;
+}
+
+.timeline ul {
+  list-style: none;
+  padding: 0;
+}
+
+.timeline li {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.timeline-date {
+  font-size: 1.2rem;
+  color: #9b1d20; /* Red accent */
+  font-weight: bold;
+}
+
+.timeline-event {
+  font-size: 1rem;
+  color: #666;
+  margin-top: 10px;
+}
+
+/* Portrait */
+.portrait {
+  margin-bottom: 40px;
+}
+
+.portrait-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.portrait-img:hover {
+  transform: scale(1.05);
+}
+
+
+/* Descriptive Text */
+.description p {
+  font-size: 1.2rem;
+  color: #444;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Animation for portrait */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+html {
+  scroll-behavior: smooth;
 }
