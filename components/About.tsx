@@ -38,7 +38,7 @@ const About = () => {
 
         <p className="text-lg md:text-xl leading-relaxed mb-6 font-poppins text-opacity-90">
           Hey, I’m Nemo. I believe we all have a reason, and I believe mine is
-          to share what I cherish with the world. That’s the only way I know
+          to share what I cherish with the world, for I think that is the way
           to live a life of purpose.
         </p>
 
