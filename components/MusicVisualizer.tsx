@@ -8,32 +8,23 @@ export default function MusicVisualizer() {
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
-    if (!containerRef.current || !audioRef.current) return;
+    const container = containerRef.current;
+    const audio = audioRef.current;
+    if (!container || !audio) return;
 
-    // List of music files
-    const musicFiles = [
-      "/music/music1.wav",
-      "/music/music2.mp3",
-      "/music/music3.mp3",
-    ];
-
-    // Randomly select a music file
-    const randomMusicFile = musicFiles[Math.floor(Math.random() * musicFiles.length)];
-    audioRef.current.src = randomMusicFile; // Set the selected music file
+    // 🎵 Randomize one of the three audio files
+    const musicOptions = ["/music/music1.wav", "/music/music2.mp3", "/music/music3.mp3"];
+    const randomMusic = musicOptions[Math.floor(Math.random() * musicOptions.length)];
+    audio.src = randomMusic;
 
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      1000
-    );
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.z = 2;
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setClearColor(0x000000, 0);
-    containerRef.current.appendChild(renderer.domElement);
+    container.appendChild(renderer.domElement);
 
     const createBlob = (size: number, color: THREE.Color) => {
       const geometry = new THREE.SphereGeometry(size, 16, 16);
@@ -46,26 +37,15 @@ export default function MusicVisualizer() {
       });
 
       const mesh = new THREE.Mesh(geometry, material);
-      mesh.position.set(
-        Math.random() * 2 - 1,
-        Math.random() * 2 - 1,
-        Math.random() * 2 - 1
-      );
-
+      mesh.position.set(Math.random() * 2 - 1, Math.random() * 2 - 1, Math.random() * 2 - 1);
       mesh.userData = {
         speed: Math.random() * 0.001 + 0.0005,
-        direction: new THREE.Vector3(
-          Math.random() - 0.5,
-          Math.random() - 0.5,
-          Math.random() - 0.5
-        ).normalize(),
+        direction: new THREE.Vector3(Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5).normalize(),
       };
-
       scene.add(mesh);
       return mesh;
     };
 
-    // Lighting
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
     const pointLight = new THREE.PointLight(0xffffff, 1.5, 100);
     pointLight.position.set(5, 5, 5);
@@ -88,9 +68,8 @@ export default function MusicVisualizer() {
     };
     window.addEventListener("resize", onResize);
 
-    // Audio setup
     const audioContext = new AudioContext();
-    const source = audioContext.createMediaElementSource(audioRef.current);
+    const source = audioContext.createMediaElementSource(audio);
     const analyser = audioContext.createAnalyser();
     source.connect(analyser);
     analyser.connect(audioContext.destination);
@@ -98,7 +77,6 @@ export default function MusicVisualizer() {
 
     const dataArray = new Uint8Array(analyser.frequencyBinCount);
 
-    // Animate
     let smoothedLevel = 0;
     let rotationAngle = 0;
 
@@ -107,12 +85,10 @@ export default function MusicVisualizer() {
       const avg = dataArray.reduce((sum, val) => sum + val, 0) / dataArray.length;
       const normalizedLevel = avg / 255;
 
-      // Smooth audio level with a stronger effect (more noticeable)
-      smoothedLevel += (normalizedLevel - smoothedLevel) * 0.2; // Increased smoothing factor
+      smoothedLevel += (normalizedLevel - smoothedLevel) * 0.2;
 
       blobs.forEach((blob) => {
-        // Amplified effect: Make the blobs pulsate based on the audio level
-        const scale = 1 + smoothedLevel * 0.8; // More noticeable scaling
+        const scale = 1 + smoothedLevel * 0.8;
         blob.scale.set(scale, scale, scale);
 
         blob.rotation.y += 0.002 + smoothedLevel * 0.005;
@@ -123,7 +99,6 @@ export default function MusicVisualizer() {
         if (Math.abs(blob.position.z) > 1.5) blob.userData.direction.z *= -1;
       });
 
-      // 🌀 Rotate camera gently around center
       rotationAngle += 0.001;
       camera.position.x = Math.sin(rotationAngle) * 2;
       camera.position.z = Math.cos(rotationAngle) * 2;
@@ -135,7 +110,7 @@ export default function MusicVisualizer() {
 
     const startAudio = () => {
       audioContext.resume();
-      audioRef.current?.play();
+      audio.play();
       window.removeEventListener("click", startAudio);
     };
     window.addEventListener("click", startAudio);
@@ -145,7 +120,7 @@ export default function MusicVisualizer() {
     return () => {
       window.removeEventListener("resize", onResize);
       window.removeEventListener("click", startAudio);
-      containerRef.current?.removeChild(renderer.domElement);
+      container.removeChild(renderer.domElement);
       audioContext.close();
     };
   }, []);

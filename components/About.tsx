@@ -1,5 +1,8 @@
+
 "use client";
 import React, { useEffect } from "react";
+// At the top of your file
+import Image from "next/image";
 
 const About = () => {
   const scrollToMusic = () => {
@@ -40,11 +43,13 @@ const About = () => {
         </p>
 
         <div className="flex justify-center mb-8">
-          <img
-            src="/me.jpg"
-            alt="Nemo Portrait"
-            className="w-48 h-48 rounded-full object-cover border-4 border-[#ff2e2e] shadow-xl hover:scale-105 transition-transform duration-300"
-          />
+        <Image
+          src="/me.jpg"
+          alt="Nemo Portrait"
+          width={192} // w-48 = 12rem = 192px
+          height={192} // h-48 = 12rem = 192px
+          className="rounded-full object-cover border-4 border-[#ff2e2e] shadow-xl hover:scale-105 transition-transform duration-300"
+        />
         </div>
 
         <button
