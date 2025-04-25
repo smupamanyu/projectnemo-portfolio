@@ -1,11 +1,14 @@
-import Hero from '@/components/Hero';
-import About from '@/components/About'; // Import the About section
+// app/page.tsx
+import Hero from "@/components/Hero";
+import About from "@/components/About";
+import MusicSection from "@/components/MusicSection"; // Import Music Section
 
 export default function Home() {
   return (
-    <div>
+    <main>
       <Hero />
-      <About /> {/* Include the About section here */}
-    </div>
+      <About />
+      <MusicSection />
+    </main>
   );
 }

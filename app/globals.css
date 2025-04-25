@@ -87,3 +87,53 @@
 html {
   scroll-behavior: smooth;
 }
+
+.bg-beige {
+  background-color: #f5f5f0; /* Soft beige */
+}
+
+/* Gradient animation for moving background */
+@keyframes gradient-x {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-x {
+  background-size: 300% 300%;
+  animation: gradient-x 20s ease-in-out infinite;
+}
+
+
+/* Hover effect for title text */
+h2:hover {
+  transform: scale(1.1);
+  color: #ff2e2e; /* Red shade */
+}
+
+.animate-gradient-x {
+  background-size: 300% 300%;
+  animation: gradient-x 20s ease-in-out infinite;
+  will-change: background-position;
+}
+
+@keyframes float-in {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float-in {
+  animation: float-in 1s ease-out forwards;
+}
