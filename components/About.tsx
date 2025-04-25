@@ -1,4 +1,3 @@
-
 "use client";
 import React, { useEffect } from "react";
 // At the top of your file
@@ -43,13 +42,20 @@ const About = () => {
         </p>
 
         <div className="flex justify-center mb-8">
-        <Image
-          src="/me.jpg"
-          alt="Nemo Portrait"
-          width={192} // w-48 = 12rem = 192px
-          height={192} // h-48 = 12rem = 192px
-          className="rounded-full object-cover border-4 border-[#ff2e2e] shadow-xl hover:scale-105 transition-transform duration-300"
-        />
+          {/* Link to Instagram */}
+          <a
+            href="https://www.instagram.com/icaptainnemo/?hl=en" // Replace with your Instagram profile URL
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="/me.jpg"
+              alt="Nemo Portrait"
+              width={192} // w-48 = 12rem = 192px
+              height={192} // h-48 = 12rem = 192px
+              className="rounded-full object-cover border-4 border-[#ff2e2e] shadow-xl hover:scale-105 transition-transform duration-300"
+            />
+          </a>
         </div>
 
         <button
