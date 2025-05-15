@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
+import VolumeSlider from "./VolumeSlider";
 
 export default function MusicVisualizer() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -145,6 +146,7 @@ export default function MusicVisualizer() {
       style={{ backgroundColor: "transparent" }}
     >
       <audio ref={audioRef} loop />
+      <VolumeSlider audio={audioRef.current} />
     </div>
   );
 }
