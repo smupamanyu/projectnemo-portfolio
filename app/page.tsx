@@ -1,7 +1,8 @@
 // app/page.tsx
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import MusicSection from "@/components/MusicSection"; // Import Music Section
+import MusicSection from "@/components/MusicSection";
+import TechSection from "@/components/TechSection";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <Hero />
       <About />
       <MusicSection />
+      <TechSection />
     </main>
   );
 }
