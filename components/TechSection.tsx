@@ -12,27 +12,30 @@ interface Project {
 export default function TechSection() {
   const projects: Project[] = [
     {
-      title: "Project Alpha",
-      description: "A modern web application built with React and TypeScript",
-      githubUrl: "https://github.com/yourusername/project-alpha",
-      techs: ["React", "TypeScript", "Node.js"]
+      title: "MindMap",
+      description: "An AI Powered Learning Tool",
+      githubUrl: "https://github.com/MIndMapTool/mindmap",
+      techs: ["React", "TypeScript", "Flask", "PostgreSQL"],
     },
     {
-      title: "Beta Framework",
-      description: "Lightweight framework for building scalable applications",
-      githubUrl: "https://github.com/yourusername/beta-framework",
-      techs: ["Python", "FastAPI", "PostgreSQL"]
+      title: "M-Gen",
+      description: "A GUI Based Custom Midi Generator",
+      githubUrl: "https://github.com/smupamanyu/Music-Generation-App",
+      techs: ["Python", "Genetic Algorithms", "Pyo"],
     },
     {
-      title: "Gamma Tools",
-      description: "Collection of developer productivity tools",
-      githubUrl: "https://github.com/yourusername/gamma-tools",
-      techs: ["JavaScript", "Docker", "AWS"]
-    }
+      title: "Project Nemo",
+      description: "This website you're on!",
+      githubUrl: "https://github.com/smupamanyu/projectnemo-portfolio",
+      techs: ["JavaScript", "TypeScript", "HTML", "CSS", "Next.js"],
+    },
   ];
 
   return (
-    <section id="tech" className="relative min-h-screen bg-[#fdf6f0] py-32 px-6 overflow-hidden">
+    <section
+      id="tech"
+      className="relative min-h-screen bg-[#fdf6f0] py-32 px-6 overflow-hidden"
+    >
       {/* Top gradient transition */}
       <div className="absolute -top-40 left-0 w-full h-40 bg-gradient-to-b from-transparent via-[#fdf6f0]/80 to-[#fdf6f0] z-10 pointer-events-none" />
       {/* Enhanced background effects */}
