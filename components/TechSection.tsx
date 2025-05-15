@@ -33,9 +33,7 @@ export default function TechSection() {
   ];
 
   return (
-    <section id="tech" className="relative min-h-screen bg-[#fdf6f0] py-32 px-6 overflow-hidden">
-      {/* Top gradient transition */}
-      <div className="absolute -top-64 left-0 w-full h-96 bg-gradient-to-b from-transparent via-[#fdf6f0]/80 to-[#fdf6f0] z-10 pointer-events-none" />
+    <section className="relative min-h-screen bg-[#fdf6f0] py-32 px-6 overflow-hidden">
       {/* Enhanced background effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#ff2e2e10] via-[#ffbe6910] to-[#ff2e2e10] opacity-70" />
       <div className="absolute w-[40rem] h-[40rem] bg-[#ffbe69] opacity-5 rounded-full -top-40 -left-40 blur-3xl animate-pulse-slow" />
