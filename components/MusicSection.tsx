@@ -39,7 +39,7 @@ export default function MusicSection() {
     >
       <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-[#fdf6ec] via-[#fef3e6] to-transparent z-10 pointer-events-none" />
 
-      <h2 className="mt-10 text-5xl md:text-6xl font-bold font-[Cormorant_Garamond] italic text-center z-20 mb-12 tracking-wide text-[#ff2e2e] drop-shadow-[0_2px_6px_rgba(255,46,46,0.5)] transition-transform duration-700 hover:scale-110">
+      <h2 className="mt-10 text-5xl md:text-6xl font-bold font-[Cormorant_Garamond] italic text-center z-20 mb-24 tracking-wide text-[#ff2e2e] drop-shadow-[0_2px_6px_rgba(255,46,46,0.5)] transition-transform duration-700 hover:scale-110">
         My Sound And Vision
       </h2>
 
