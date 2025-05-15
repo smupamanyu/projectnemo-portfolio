@@ -137,19 +137,3 @@ h2:hover {
 .animate-float-in {
   animation: float-in 1s ease-out forwards;
 }
-
-
-@keyframes float-in {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-float-in {
-  animation: float-in 0.6s ease-out forwards;
-}
