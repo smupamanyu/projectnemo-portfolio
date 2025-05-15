@@ -54,14 +54,14 @@ export default function MusicSection() {
 
       <div
         id="floating-elements"
-        className={`absolute z-30 flex space-x-8 justify-center top-1/2 transform -translate-y-1/2 transition-all duration-1000 ease-in-out ${
+        className={`absolute z-30 flex space-x-16 justify-center top-1/2 transform -translate-y-1/2 transition-all duration-1000 ease-in-out ${
           inView ? "animate-float-in" : ""
         }`}
       >
         {/* Floating Image 1 */}
         <a
           href="https://soundcloud.com/user-491313578/oxy-x-capn-nemo-goo-tai-shi"
-          className="group relative w-48 h-48 bg-gradient-to-r from-[#ff2e2e] via-[#ffbe69] to-[#ff2e2e] rounded-xl overflow-hidden shadow-[0_8px_32px_-8px_rgba(255,46,46,0.5)] hover:shadow-[0_16px_48px_-8px_rgba(255,46,46,0.7)] hover:scale-110 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] transform hover:rotate-6 backdrop-blur-xl bg-opacity-40 border-2 border-white/20 hover:border-white/40 animate-pulse-slow"
+          className="group relative w-52 h-52 bg-gradient-to-r from-[#ff2e2e] via-[#ffbe69] to-[#ff2e2e] rounded-2xl overflow-hidden shadow-[0_8px_32px_-4px_rgba(255,46,46,0.5)] hover:shadow-[0_24px_64px_-8px_rgba(255,46,46,0.8)] hover:scale-110 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] transform hover:rotate-6 backdrop-blur-xl bg-opacity-50 border-4 border-white/30 hover:border-white/50 animate-pulse-slow"
         >
           <Image
             src="/images/work1.jpg"
@@ -76,7 +76,7 @@ export default function MusicSection() {
         {/* Floating Image 2 */}
         <a
           href="https://www.instagram.com/p/DDzUzVUpgCi/?hl=en"
-          className="group relative w-48 h-48 bg-gradient-to-r from-[#ffbe69] via-[#ff2e2e] to-[#ffbe69] rounded-xl overflow-hidden shadow-[0_8px_32px_-8px_rgba(255,190,105,0.5)] hover:shadow-[0_16px_48px_-8px_rgba(255,190,105,0.7)] hover:scale-110 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] transform hover:rotate-6 backdrop-blur-xl bg-opacity-40 border-2 border-white/20 hover:border-white/40 animate-pulse-slow"
+          className="group relative w-52 h-52 bg-gradient-to-r from-[#ffbe69] via-[#ff2e2e] to-[#ffbe69] rounded-2xl overflow-hidden shadow-[0_8px_32px_-4px_rgba(255,190,105,0.5)] hover:shadow-[0_24px_64px_-8px_rgba(255,190,105,0.8)] hover:scale-110 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] transform hover:rotate-6 backdrop-blur-xl bg-opacity-50 border-4 border-white/30 hover:border-white/50 animate-pulse-slow"
         >
           <Image
             src="/images/work2.png"
@@ -91,7 +91,7 @@ export default function MusicSection() {
         {/* Floating Image 3 */}
         <a
           href="https://www.youtube.com/watch?v=40HaficdHug&ab_channel=Nemo"
-          className="group relative w-48 h-48 bg-gradient-to-r from-[#ff2e2e] via-[#ffbe69] to-[#ff2e2e] rounded-xl overflow-hidden shadow-[0_8px_32px_-8px_rgba(255,46,46,0.5)] hover:shadow-[0_16px_48px_-8px_rgba(255,46,46,0.7)] hover:scale-110 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] transform hover:rotate-6 backdrop-blur-xl bg-opacity-40 border-2 border-white/20 hover:border-white/40 animate-pulse-slow"
+          className="group relative w-52 h-52 bg-gradient-to-r from-[#ff2e2e] via-[#ffbe69] to-[#ff2e2e] rounded-2xl overflow-hidden shadow-[0_8px_32px_-4px_rgba(255,46,46,0.5)] hover:shadow-[0_24px_64px_-8px_rgba(255,46,46,0.8)] hover:scale-110 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] transform hover:rotate-6 backdrop-blur-xl bg-opacity-50 border-4 border-white/30 hover:border-white/50 animate-pulse-slow"
         >
           <Image
             src="/images/work3.png"
