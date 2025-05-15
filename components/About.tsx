@@ -36,9 +36,9 @@ const About = () => {
         </h2>
 
         <p className="text-lg md:text-xl leading-relaxed mb-6 font-poppins text-opacity-90">
-          Hey, I’m Nemo. I believe we all have a reason, and I believe mine is
-          to share what I cherish with the world, for I think that is the way
-          to live a life of purpose.
+          Hey, I’m Nemo. I'm a musician and a Developer. I believe we all have a reason,
+          and I believe mine is to share what I cherish with the world, for I
+          think that is the way to live a life of purpose.
         </p>
 
         <div className="flex justify-center mb-8">
