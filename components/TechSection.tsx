@@ -7,6 +7,7 @@ interface Project {
   description: string;
   githubUrl: string;
   techs: string[];
+  imageUrl: string;
 }
 
 export default function TechSection() {
@@ -16,18 +17,21 @@ export default function TechSection() {
       description: "An AI Powered Learning Tool",
       githubUrl: "https://github.com/MIndMapTool/mindmap",
       techs: ["React", "TypeScript", "Flask", "PostgreSQL"],
+      imageUrl: "/images/mindmap.png",
     },
     {
       title: "M-Gen",
       description: "A GUI Based Custom Midi Generator",
       githubUrl: "https://github.com/smupamanyu/Music-Generation-App",
       techs: ["Python", "Genetic Algorithms", "Pyo"],
+      imageUrl: "/images/mgen.png",
     },
     {
       title: "Project Nemo",
       description: "This website you're on!",
       githubUrl: "https://github.com/smupamanyu/projectnemo-portfolio",
       techs: ["JavaScript", "TypeScript", "HTML", "CSS", "Next.js"],
+      imageUrl: "/images/nemo.png",
     },
   ];
 
@@ -62,6 +66,15 @@ export default function TechSection() {
               <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10 shadow-2xl transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(255,46,46,0.2)] hover:border-[#ff2e2e20] transform-gpu hover:-translate-y-2 hover:scale-[1.02] group-hover:rotate-1">
                 <div className="absolute inset-0 bg-gradient-to-br from-white/[0.07] to-transparent rounded-2xl" />
                 <div className="relative z-10">
+                  <div className="w-full h-48 mb-6 overflow-hidden rounded-lg">
+                    <Image
+                      src={project.imageUrl}
+                      alt={`${project.title} screenshot`}
+                      width={400}
+                      height={225}
+                      className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
                   <h3 className="text-3xl font-bold mb-4 text-[#ff2e2e] font-[Cormorant_Garamond] tracking-wide group-hover:text-[#d62222] transition-colors duration-300">
                     {project.title}
                   </h3>
