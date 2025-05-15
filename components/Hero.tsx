@@ -20,7 +20,7 @@ export default function Hero() {
 
       {/* Hero content */}
       <div className="z-10 text-center px-6">
-        <h1 className="text-6xl md:text-8xl font-bold drop-shadow-lg bg-clip-text text-transparent bg-gradient-to-r from-[#ff2e2e] to-[#800f2f] animate-gradient-x">Hello, I'm Nemo</h1>
+        <h1 className="text-6xl md:text-8xl font-bold drop-shadow-lg bg-clip-text text-transparent bg-gradient-to-r from-[#a4133c] to-[#800f2f] animate-gradient-x">Hello, I'm Nemo</h1>
         <p className="mt-4 text-xl font-poppins text-[#800f2f] tracking-wide">
           Here we go
         </p>
