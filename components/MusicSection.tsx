@@ -1,10 +1,13 @@
+
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import MusicVisualizer from "./MusicVisualizer";
 import Image from "next/image";
 
 export default function MusicSection() {
   const [inView, setInView] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -15,101 +18,102 @@ export default function MusicSection() {
           }
         });
       },
-      {
-        threshold: 0.5,
-      }
+      { threshold: 0.5 }
     );
 
     const target = document.getElementById("floating-elements");
-    if (target) {
-      observer.observe(target);
-    }
+    if (target) observer.observe(target);
 
     return () => {
-      if (target) {
-        observer.unobserve(target);
-      }
+      if (target) observer.unobserve(target);
     };
   }, []);
 
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!sectionRef.current) return;
+    const rect = sectionRef.current.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+    const y = ((e.clientY - rect.top) / rect.height) * 2 - 1;
+    setMousePosition({ x, y });
+  };
+
+  const projects = [
+    {
+      title: "Goo Tai Shi",
+      image: "/images/work1.jpg",
+      url: "https://soundcloud.com/user-491313578/oxy-x-capn-nemo-goo-tai-shi",
+      description: "Electronic fusion with traditional elements",
+    },
+    {
+      title: "Visual Performance",
+      image: "/images/work2.png",
+      url: "https://www.instagram.com/p/DDzUzVUpgCi/?hl=en",
+      description: "Live audio-visual performance",
+    },
+    {
+      title: "Music Video",
+      image: "/images/work3.png",
+      url: "https://www.youtube.com/watch?v=40HaficdHug&ab_channel=Nemo",
+      description: "Experimental visual narrative",
+    },
+  ];
+
   return (
     <section
+      ref={sectionRef}
       id="music"
-      className="relative w-full min-h-screen bg-[#fff2e5] text-black px-6 md:px-12 overflow-hidden flex flex-col items-center justify-center"
+      className="relative w-full min-h-screen bg-[#fff2e5] px-6 md:px-12 overflow-hidden"
+      onMouseMove={handleMouseMove}
     >
-      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-[#fdf6ec] via-[#fef3e6] to-transparent z-10 pointer-events-none" />
-
-      <h2 className="mt-10 text-5xl md:text-6xl font-bold font-[Cormorant_Garamond] italic text-center z-20 mb-24 tracking-wide text-[#ff2e2e] drop-shadow-[0_2px_6px_rgba(255,46,46,0.5)] transition-transform duration-700 hover:scale-110">
+      <div className="absolute inset-0 bg-gradient-to-br from-[#ff2e2e33] via-[#ffbe69aa] to-[#ff2e2e33] opacity-60 animate-gradient-x z-0 mix-blend-multiply pointer-events-none" />
+      
+      <h2 className="relative z-20 mt-10 text-5xl md:text-6xl font-bold font-[Cormorant_Garamond] italic text-center mb-24 tracking-wide text-[#ff2e2e] drop-shadow-[0_2px_6px_rgba(255,46,46,0.5)] transition-all duration-700 hover:scale-110">
         My Sound And Vision
       </h2>
 
-      <div className="max-w-4xl w-full relative z-20">
+      <div className="max-w-4xl mx-auto relative z-20 mb-24">
         <MusicVisualizer />
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-br from-[#ff2e2e33] via-[#ffbe69aa] to-[#ff2e2e33] opacity-60 animate-gradient-x z-0 mix-blend-multiply pointer-events-none" />
-
-      <div
+      <div 
         id="floating-elements"
-        className={`absolute z-30 flex space-x-8 justify-center top-1/2 transform -translate-y-1/2 transition-all duration-1000 ease-in-out ${
-          inView ? "animate-float-in" : ""
-        }`}
+        className="relative z-30 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4"
+        style={{
+          transform: `perspective(1000px) rotateX(${mousePosition.y * 2}deg) rotateY(${mousePosition.x * 2}deg)`,
+          transition: 'transform 0.1s ease-out'
+        }}
       >
-        {/* Floating Image 1 */}
-        <a
-          href="https://soundcloud.com/user-491313578/oxy-x-capn-nemo-goo-tai-shi"
-          className="group relative w-48 h-48 bg-gradient-to-r from-[#ff2e2e] via-[#ffbe69] to-[#ff2e2e] rounded-xl overflow-hidden shadow-xl hover:scale-105 transition-all duration-500 ease-in-out transform hover:rotate-3 backdrop-blur-lg bg-opacity-30 border border-white/10"
-        >
-          <Image
-            src="/images/work1.jpg"
-            alt="Work 1"
-            width={192}
-            height={192}
-            className="w-full h-full object-cover group-hover:opacity-80 transition-opacity duration-300"
-          />
-          <div className="absolute inset-0 bg-[#ff2e2e] opacity-0 group-hover:opacity-40 transition-opacity duration-300" />
-        </a>
-
-        {/* Floating Image 2 */}
-        <a
-          href="https://www.instagram.com/p/DDzUzVUpgCi/?hl=en"
-          className="group relative w-48 h-48 bg-gradient-to-r from-[#ffbe69] via-[#ff2e2e] to-[#ffbe69] rounded-xl overflow-hidden shadow-xl hover:scale-105 transition-all duration-500 ease-in-out transform hover:rotate-3 backdrop-blur-lg bg-opacity-30 border border-white/10"
-        >
-          <Image
-            src="/images/work2.png"
-            alt="Work 2"
-            width={192}
-            height={192}
-            className="w-full h-full object-cover group-hover:opacity-80 transition-opacity duration-300"
-          />
-          <div className="absolute inset-0 bg-[#ffbe69] opacity-0 group-hover:opacity-40 transition-opacity duration-300" />
-        </a>
-
-        {/* Floating Image 3 */}
-        <a
-          href="https://www.youtube.com/watch?v=40HaficdHug&ab_channel=Nemo"
-          className="group relative w-48 h-48 bg-gradient-to-r from-[#ff2e2e] via-[#ffbe69] to-[#ff2e2e] rounded-xl overflow-hidden shadow-xl hover:scale-105 transition-all duration-500 ease-in-out transform hover:rotate-3 backdrop-blur-lg bg-opacity-30 border border-white/10"
-        >
-          <Image
-            src="/images/work3.png"
-            alt="Work 3"
-            width={192}
-            height={192}
-            className="w-full h-full object-cover group-hover:opacity-80 transition-opacity duration-300"
-          />
-          <div className="absolute inset-0 bg-[#ff2e2e] opacity-0 group-hover:opacity-40 transition-opacity duration-300" />
-        </a>
+        {projects.map((project, index) => (
+          <a
+            key={index}
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`group relative transform transition-all duration-500 hover:scale-105 hover:z-30 ${
+              inView ? 'animate-float-in opacity-100' : 'opacity-0'
+            }`}
+            style={{ animationDelay: `${index * 200}ms` }}
+          >
+            <div className="relative bg-white/10 backdrop-blur-lg rounded-xl overflow-hidden shadow-2xl border border-white/20">
+              <div className="relative h-64 overflow-hidden">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+              <div className="p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                <h3 className="text-2xl font-bold text-[#ff2e2e] mb-2">{project.title}</h3>
+                <p className="text-gray-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {project.description}
+                </p>
+              </div>
+            </div>
+          </a>
+        ))}
       </div>
-
-      <div className="absolute inset-0 pointer-events-none z-10">
-        <div className="w-full h-full bg-gradient-radial from-[#ff2e2e33] via-transparent to-transparent animate-pulse blur-3xl mix-blend-screen"></div>
-      </div>
-
-      <div className="absolute inset-0 bg-[url('/textures/noise.png')] opacity-10 mix-blend-overlay pointer-events-none z-0" />
-
-      <div className="absolute inset-0 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-400 opacity-40 transition-opacity duration-1000 ease-in-out hover:opacity-70 mix-blend-color-dodge z-0 pointer-events-none" />
-
-      <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-[#fdf6f0] via-[#fdf6f0]/80 to-transparent z-10 pointer-events-none"></div>
 
       <button 
         onClick={() => document.getElementById('tech')?.scrollIntoView({ behavior: 'smooth' })}
