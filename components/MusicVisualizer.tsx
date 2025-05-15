@@ -68,12 +68,25 @@ export default function MusicVisualizer() {
     };
     window.addEventListener("resize", onResize);
 
-    const audioContext = new AudioContext();
-    const source = audioContext.createMediaElementSource(audio);
-    const analyser = audioContext.createAnalyser();
-    source.connect(analyser);
-    analyser.connect(audioContext.destination);
-    analyser.fftSize = 256;
+    let audioContext;
+    let source;
+    let analyser;
+    
+    if (!audio.mediaNode) {
+      audioContext = new AudioContext();
+      source = audioContext.createMediaElementSource(audio);
+      analyser = audioContext.createAnalyser();
+      source.connect(analyser);
+      analyser.connect(audioContext.destination);
+      analyser.fftSize = 256;
+      audio.mediaNode = source;
+    } else {
+      audioContext = audio.mediaNode.context;
+      analyser = audioContext.createAnalyser();
+      audio.mediaNode.connect(analyser);
+      analyser.connect(audioContext.destination);
+      analyser.fftSize = 256;
+    }
 
     const dataArray = new Uint8Array(analyser.frequencyBinCount);
 
