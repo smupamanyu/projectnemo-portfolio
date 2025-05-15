@@ -58,7 +58,7 @@ export default function MusicSection() {
         {/* Floating Image 1 */}
         <a
           href="https://soundcloud.com/user-491313578/oxy-x-capn-nemo-goo-tai-shi"
-          className="group relative w-48 h-48 bg-gradient-to-r from-[#ff2e2e] via-[#ffbe69] to-[#ff2e2e] rounded-xl overflow-hidden shadow-xl hover:scale-105 transition-all duration-500 ease-in-out transform hover:rotate-3"
+          className="group relative w-48 h-48 bg-gradient-to-r from-[#ff2e2e] via-[#ffbe69] to-[#ff2e2e] rounded-xl overflow-hidden shadow-xl hover:scale-105 transition-all duration-500 ease-in-out transform hover:rotate-3 backdrop-blur-lg bg-opacity-30 border border-white/10"
         >
           <Image
             src="/images/work1.jpg"
@@ -73,7 +73,7 @@ export default function MusicSection() {
         {/* Floating Image 2 */}
         <a
           href="https://www.instagram.com/p/DDzUzVUpgCi/?hl=en"
-          className="group relative w-48 h-48 bg-gradient-to-r from-[#ffbe69] via-[#ff2e2e] to-[#ffbe69] rounded-xl overflow-hidden shadow-xl hover:scale-105 transition-all duration-500 ease-in-out transform hover:rotate-3"
+          className="group relative w-48 h-48 bg-gradient-to-r from-[#ffbe69] via-[#ff2e2e] to-[#ffbe69] rounded-xl overflow-hidden shadow-xl hover:scale-105 transition-all duration-500 ease-in-out transform hover:rotate-3 backdrop-blur-lg bg-opacity-30 border border-white/10"
         >
           <Image
             src="/images/work2.png"
@@ -88,7 +88,7 @@ export default function MusicSection() {
         {/* Floating Image 3 */}
         <a
           href="https://www.youtube.com/watch?v=40HaficdHug&ab_channel=Nemo"
-          className="group relative w-48 h-48 bg-gradient-to-r from-[#ff2e2e] via-[#ffbe69] to-[#ff2e2e] rounded-xl overflow-hidden shadow-xl hover:scale-105 transition-all duration-500 ease-in-out transform hover:rotate-3"
+          className="group relative w-48 h-48 bg-gradient-to-r from-[#ff2e2e] via-[#ffbe69] to-[#ff2e2e] rounded-xl overflow-hidden shadow-xl hover:scale-105 transition-all duration-500 ease-in-out transform hover:rotate-3 backdrop-blur-lg bg-opacity-30 border border-white/10"
         >
           <Image
             src="/images/work3.png"

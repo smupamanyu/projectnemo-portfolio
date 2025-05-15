@@ -53,7 +53,7 @@ const About = () => {
               alt="Nemo Portrait"
               width={192} // w-48 = 12rem = 192px
               height={192} // h-48 = 12rem = 192px
-              className="rounded-full object-cover border-4 border-[#ff2e2e] shadow-xl hover:scale-105 transition-transform duration-300"
+              className="rounded-full object-cover border-4 border-[#ff2e2e] shadow-xl hover:scale-105 hover:rotate-3 transition-all duration-500 ease-in-out"
             />
           </a>
         </div>
