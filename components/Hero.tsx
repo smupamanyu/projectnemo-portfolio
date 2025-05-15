@@ -25,7 +25,10 @@ export default function Hero() {
           Here we go
         </p>
         <button
-          onClick={() => scrollToSection("about")}
+          onClick={(e) => {
+            e.preventDefault(); // Prevent any default behavior
+            scrollToSection("about"); // Smooth scroll to the "about" section
+          }}
           className="mt-10 px-6 py-3 bg-[#a4133c] text-white rounded-full shadow-md hover:bg-[#800f2f] transition-all text-lg font-semibold tracking-wide"
         >
           Enter

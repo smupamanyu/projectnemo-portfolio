@@ -44,7 +44,7 @@ const About = () => {
         <div className="flex justify-center mb-8">
           {/* Link to Instagram */}
           <a
-            href="https://www.instagram.com/icaptainnemo/?hl=en" // Replace with your Instagram profile URL
+            href="https://www.instagram.com/icaptainnemo/?hl=en" 
             target="_blank"
             rel="noopener noreferrer"
           >

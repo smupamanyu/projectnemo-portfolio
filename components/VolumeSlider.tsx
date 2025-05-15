@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 
 interface VolumeSliderProps {
@@ -7,6 +6,27 @@ interface VolumeSliderProps {
 
 export default function VolumeSlider({ audio }: VolumeSliderProps) {
   const [volume, setVolume] = useState(1);
+
+  useEffect(() => {
+    if (audio) {
+      console.log('Audio element:', audio); // Debugging
+      console.log('Audio readyState:', audio.readyState); // Debugging
+
+      const handleAudioReady = () => {
+        audio.volume = volume;
+      };
+
+      audio.addEventListener('canplay', handleAudioReady);
+
+      if (audio.readyState >= 3) {
+        handleAudioReady();
+      }
+
+      return () => {
+        audio.removeEventListener('canplay', handleAudioReady);
+      };
+    }
+  }, [audio, volume]);
 
   const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newVolume = parseFloat(e.target.value);

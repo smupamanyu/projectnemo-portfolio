@@ -73,18 +73,20 @@ export default function MusicVisualizer() {
     let source;
     let analyser;
     
-    if (!audio.mediaNode) {
+    const audioSourceMap = new WeakMap<HTMLAudioElement, MediaElementAudioSourceNode>();
+
+    if (!audioSourceMap.has(audio)) {
       audioContext = new AudioContext();
       source = audioContext.createMediaElementSource(audio);
       analyser = audioContext.createAnalyser();
       source.connect(analyser);
       analyser.connect(audioContext.destination);
       analyser.fftSize = 256;
-      audio.mediaNode = source;
+      audioSourceMap.set(audio, source);
     } else {
-      audioContext = audio.mediaNode.context;
+      audioContext = audioSourceMap.get(audio)!.context;
       analyser = audioContext.createAnalyser();
-      audio.mediaNode.connect(analyser);
+      audioSourceMap.get(audio)!.connect(analyser);
       analyser.connect(audioContext.destination);
       analyser.fftSize = 256;
     }
@@ -123,7 +125,7 @@ export default function MusicVisualizer() {
     };
 
     const startAudio = () => {
-      audioContext.resume();
+      (audioContext as AudioContext).resume();
       audio.play();
       window.removeEventListener("click", startAudio);
     };
@@ -135,7 +137,9 @@ export default function MusicVisualizer() {
       window.removeEventListener("resize", onResize);
       window.removeEventListener("click", startAudio);
       container.removeChild(renderer.domElement);
-      audioContext.close();
+      if (audioContext instanceof AudioContext) {
+        audioContext.close();
+      }
     };
   }, []);
 
