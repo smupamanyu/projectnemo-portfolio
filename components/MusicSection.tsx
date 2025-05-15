@@ -109,7 +109,7 @@ export default function MusicSection() {
 
       <div className="absolute inset-0 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-400 opacity-40 transition-opacity duration-1000 ease-in-out hover:opacity-70 mix-blend-color-dodge z-0 pointer-events-none" />
 
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#fdf6f0] via-[#fdf6ec] to-transparent z-10"></div>
+      <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-[#fdf6f0] via-[#fdf6f0]/80 to-transparent z-10"></div>
 
       <button 
         onClick={() => document.getElementById('tech')?.scrollIntoView({ behavior: 'smooth' })}
