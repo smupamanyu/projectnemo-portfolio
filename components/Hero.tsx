@@ -1,5 +1,6 @@
 "use client";
-// import { useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSoundcloud, faGithub } from "@fortawesome/free-brands-svg-icons";
 
 export default function Hero() {
   const scrollToSection = (sectionId: string) => {
@@ -20,14 +21,25 @@ export default function Hero() {
 
       {/* Hero content */}
       <div className="z-10 text-center px-6">
-        <h1 className="text-6xl md:text-8xl font-bold drop-shadow-lg bg-clip-text text-transparent bg-gradient-to-r from-[#a4133c] to-[#800f2f] animate-gradient-x">Hello, I&#39;m Nemo</h1>
-        <p className="mt-4 text-xl font-poppins text-[#800f2f] tracking-wide">
-          Here we go
+        <h1 className="text-6xl md:text-8xl font-bold drop-shadow-lg bg-clip-text text-transparent bg-gradient-to-r from-[#a4133c] to-[#800f2f] animate-gradient-x">
+          Hello, I'm Nemo
+        </h1>
+        
+        {/* Musician / Dev with Font Awesome Icons */}
+        <p className="mt-4 text-xl font-poppins text-[#800f2f] tracking-wide flex items-center justify-center gap-4">
+          Musician / Dev
+          <a href="https://soundcloud.com/icaptainnemo" target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faSoundcloud} className="text-[#a4133c] hover:text-[#800f2f] text-2xl transition-all duration-300" />
+          </a>
+          <a href="https://github.com/smupamanyu" target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faGithub} className="text-[#a4133c] hover:text-[#800f2f] text-2xl transition-all duration-300" />
+          </a>
         </p>
+
         <button
           onClick={(e) => {
-            e.preventDefault(); // Prevent any default behavior
-            scrollToSection("about"); // Smooth scroll to the "about" section
+            e.preventDefault();
+            scrollToSection("about");
           }}
           className="mt-10 px-6 py-3 bg-[#a4133c] text-white rounded-full shadow-md hover:bg-[#800f2f] transition-all text-lg font-semibold tracking-wide"
         >
